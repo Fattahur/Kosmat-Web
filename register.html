@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reg.css" media="screen" title="no title">
+        <title>Halaman Form Register</title>
+    </head>
+    <body>
+        <div class="atas" >
+            <div class="Rectangle1" ></div>
+            <div class="Kosmat" >KosMat</div>
+            <img src="../Project/Aset/logreg.png "  class="logreg"/>
+            <img src="../Project/Aset/logo6 1.png "  class="icon"/>
+            <div class="Daftar" >Daftar</div>
+            <a id="prrow" href="login.html">
+            <svg class="Arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M10.6663 19L3.99963 12M3.99963 12L10.6663 5M3.99963 12L19.9996 12" stroke="#0B3617" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <form action="ceklogin.php" method="post">
+            <div class="box-input1">
+                <input  type="text" name="namalengkapreg" placeholder="Nama Lengkap">
+            </div>
+            <div class="box-input2">
+                <input  type="text" name="alamatreg" placeholder="Alamat">
+            </div>
+            <div class="box-input3">
+                <input  type="number" name="teleponreg" placeholder="Nomor WA">
+            </div>
+            <div class="box-input4">
+                <input  type="number" name=" nik" maxlength="12" placeholder="NIK">
+            </div>
+            <div class="box-input5">
+                <input  type="text" name=" usernamereg" placeholder="Username">
+            </div>
+            <div class="box-input6">
+                <input type="password" name=" passwordreg" placeholder="Password">
+            </div>
+            <div class="box-input7">
+                <input type="password" name=" passwordreg" placeholder="Konfirmasi Password">
+            </div>
+            <button type="submit" name="register" class="btn_input">REGISTER</button>
+        </div>
+            </form>
+        </div>
+    </body>
+</html>

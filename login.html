@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="log.css" media="screen" title="no title">
+    <title>Halaman Form Login</title>
+</head>
+
+<body>
+    <div class="atas">
+        <div class="Rectangle1"></div>
+        <div class="Kosmat">KosMat</div>
+        <img src="../Project/Aset/logreg.png " class="logreg" />
+        <img src="../Project/Aset/logo6 1.png " class="icon" />
+        <div class="Masuk">Masuk</div>
+        <a id="prrow" href="register.html">
+            <svg class="Arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none">
+                <path d="M10.6663 19L3.99963 12M3.99963 12L10.6663 5M3.99963 12L19.9996 12" stroke="#0B3617"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+        <form action="ceklogin.php" method="post">
+            <div class="box-input1">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="box-input2">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" name="login" class="btn_input">LOGIN</button>
+            <form action="session.php" method="post">
+                <div class="container1">
+                    <input id="usrnme" type="checkbox">
+                    <label for="usrnme">Ingat Username</label>
+                </div>
+            </form>
+    </div>
+        </form>
+</body>
+
+</html>
