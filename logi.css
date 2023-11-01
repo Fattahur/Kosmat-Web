@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .atas{
     width: 1512px; 
     height: 871px; 
@@ -15,7 +25,7 @@ form{
     left: 0px; 
     top: 0px; 
     position: absolute; 
-    background: linear-gradient(113deg, #62D999 0%, rgba(143.30, 176.37, 158.52, 0.01) 100%, rgba(11.95, 26.56, 18.67, 0) 100%)
+    background: linear-gradient(113deg, #62D999 0%, rgba(143.30, 176.37, 158.52, 0.01) 100%, rgba(11.95, 26.56, 18.67, 0) 100%);
 }
 
 .Kosmat{
@@ -29,20 +39,12 @@ form{
     word-wrap: break-word
 }
 
-.Group1{
-    width: 310px; 
-    height: 44px; 
-    left: 200px; 
-    top: 529px; 
-    position: absolute
-}
-
 .btn_input{
     border-radius: 12px;
     width: 310px; 
     height: 44px;
-    left: 200px; 
-    top: 529px; 
+    left: 30px; 
+    top: 230px; 
     position: absolute; 
     color: white;
     background-color: rgba(10.84, 54.19, 22.66, 0.70); 
@@ -55,54 +57,47 @@ form{
     letter-spacing:1px; 
 }
 
-
-.box-input1 input{
-    border-radius: 12px; 
-    padding: 15px;
-    width: 280px;
-    background: rgba(255, 255, 255, 0.70);
-    left: 200px; 
-    top: 376px; 
-    position: absolute; 
-    color: #0B3617; 
-    font-size: 13px; 
-    font-family: Poppins; 
-    font-weight: 600;
-    letter-spacing:1px; 
-    word-wrap: break-word
+.box{
+    width: 400px;
+    height: 350px;
+    background: transparent;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    left: 200px;
+    top: 280px;
 }
 
-
-.box-input2 input{
-    border-radius: 12px; 
-    padding: 15px;
-    width: 280px;
-    background: rgba(255, 255, 255, 0.70);
-    left: 200px; 
-    top: 437px; 
-    position: absolute; 
-    color: #0B3617; 
-    font-size: 13px; 
-    font-family: Poppins; 
-    font-weight: 600;
-    letter-spacing:1px; 
-    word-wrap: break-word
+.box-input{
+    position: relative;
+    width: 310px;
+    margin: 30px;
+    border-bottom: 2px solid #0B3617;
+    top: 5px;
 }
 
-.btn_input:hover{
-    background: #0B3617;
-    color: black;
-    letter-spacing:1px; 
+.box-input label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: .5s;
 }
 
-.box-input1 input:hover{
-    background: #d9d9d9  ;
-    color: black;
+.box-input input:focus~label,
+.box-input input:valid~label {
+    top: -5px;
 }
 
-.box-input2 input:hover{
-    background: #d9d9d9;
-    color: black;
+.box-input input{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 8px 0 5px;
 }
 
 .logreg{
@@ -124,8 +119,8 @@ form{
 .Masuk{
     width: 114px; 
     height: 36px; 
-    left: 233px; 
-    top: 299px;
+    left: 280px;
+    top: 253px;
     position: absolute; 
     color: #0B3617; 
     font-size: 24px; 
@@ -137,8 +132,8 @@ form{
 .Arrow{
     width: 24px; 
     height: 24px; 
-    left: 200px; 
-    top: 299px;
+    left: 233px;
+    top: 260px;
     position: absolute; 
     color: #0B3617; 
     font-size: 24px; 
@@ -152,14 +147,15 @@ form{
     cursor: pointer;
 }
 
+
 .container1{
     width: 300px;
     margin: auto;
     display: flex;
     align-items: center;
-    top: 493px;
+    left: 35px; 
+    top: 190px; 
     position: absolute;
-    left: 208px;
 }
 
 .container1 [type="checkbox"]{  

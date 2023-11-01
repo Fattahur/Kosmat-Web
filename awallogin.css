@@ -1,0 +1,160 @@
+.atas {
+    width: 1512px;
+    height: 871px;
+    position: relative;
+    background: white
+}
+
+form {
+    position: absolute;
+}
+
+.Rectangle1 {
+    width: 1512px;
+    height: 871px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: linear-gradient(113deg, #62D999 0%, rgba(143.30, 176.37, 158.52, 0.01) 100%, rgba(11.95, 26.56, 18.67, 0) 100%);
+}
+
+.Kosmat {
+    left: 249px;
+    top: 59px;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 700;
+    word-wrap: break-word
+}
+
+.logreg {
+    width: 556px;
+    height: 556px;
+    left: 829px;
+    top: 161px;
+    position: absolute;
+}
+
+.icon {
+    width: 38px;
+    height: 35px;
+    left: 200px;
+    top: 50px;
+    position: absolute;
+}
+
+.selamatdatang {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0B3617;
+    left: 200px;
+    top: 309px;
+}
+
+.kata1 {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Poppins;
+    color: white;
+    top: 360px;
+    left: 200px;
+}
+
+.kata2 {
+    position: absolute;
+    font-size: 40px;
+    font-family: Poppins;
+    font-weight: bold;
+    color: white;
+    top: 410px;
+    left: 200px;
+}
+
+.kata3 {
+    position: absolute;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    top: 488px;
+    left: 200px;
+}
+
+.kata4 {
+    position: absolute;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 20px;
+    top: 510px;
+    left: 200px;
+}
+
+.Mulai {
+    position: absolute;
+    background-color: #326845;
+    color: white;
+    width: 192px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 2px solid #0B3617;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    top: 584px;
+    left: 200px;
+}
+
+.Masuk {
+    position: absolute;
+    background-color: white;
+    color: #326845;
+    width: 192px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 2px solid #0B3617;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #0B3617;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    top: 584px;
+    left: 405px;
+}
+
+.Mulai:hover {
+    background-color: white;
+    color: black;
+}
+
+.Masuk:hover {
+    background-color: #326845;
+    color: white;
+}
+
+.button form {
+    position: absolute;
+    display: inline-block;
+    margin: 1px;
+}
+
+.alamat {
+    position: absolute;
+    color: #326845;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    left: 200px;
+    top: 793px;
+}
