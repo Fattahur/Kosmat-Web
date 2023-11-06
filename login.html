@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="logi.css" media="screen" title="no title">
-    <script defer src="login.js"></script>
+    <link rel="stylesheet" href="./css/logi.css" media="screen" title="no title">
+    <script defer src="./js/login.js"></script>
     <title>Halaman Form Login</title>
 </head>
 
@@ -26,7 +26,7 @@
             </svg>
         </a>
         <div class="box">
-            <form action="ceklogin.php" method="post">
+            <form action="./php/ceklogin.php" method="post">
                 <div class="box-input">
                     <input type="text" name="username" required="required"
                         oninvalid="this.setCustomValidity('Username tidak boleh kosong!')"
@@ -40,8 +40,8 @@
                         oninput="setCustomValidity('')">
                     <label>password</label>
                 </div>
-                <button type="submit" name="login" class="btn_input">LOGIN</button>
-                <form action="session.php" method="post">
+                <button type="submit" name="login" onclick="handleFormSubmission(e)" class="btn_input">LOGIN</button>
+                <form action="./php/session.php" method="post">
                     <div class="container1">
                         <input id="usrnme" type="checkbox">
                         <label for="usrnme">Ingat Username</label>

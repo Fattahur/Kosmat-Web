@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="regist.css" media="screen" title="no title">
-    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="./css/regist.css" media="screen" title="no title">
+    <script defer src="./js/index.js"></script>
     <title>Halaman Form Register</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
             </svg>
         </a>
         <div class="box">
-            <form action="vregisters.php" method="post" id="form">
+            <form action="./php/vregisters.php" method="post" id="form">
                 <div class="box-input">
                     <input type="text" name="nmalngkp" id="nmalngkp" required>
                     <label for="nmalngkp">Nama Lengkap</label>
@@ -66,7 +66,7 @@
                     <label for="regvalpass">Konfirmasi password</label>
                     <div class="error"></div>
                 </div>
-                <button type="submit" name="login" class="btn_input">REGISTER</button>
+                <button type="submit" name="login" class="btn_input" onclick="(e)">REGISTER</button>
             </form>
         </div>
     </div>

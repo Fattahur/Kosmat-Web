@@ -7,8 +7,7 @@ const nik = document.getElementById('nik');
 const pass = document.getElementById('regpass');
 const valpass = document.getElementById('regvalpass');
 
-
-form.addEventListener('submit', e => {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
     validateInputs();
 });
