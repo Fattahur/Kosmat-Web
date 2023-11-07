@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KosMat</title>
+    <link rel="stylesheet" href="lupasreset.css" media="screen" title="no title">
+</head>
+<body>
+    <div class="atas">
+        <div class="Rectangle1"></div>
+        <div class="Kosmat">KosMat</div>
+        <img src="../Project/Aset/logo6 1.png " class="icon" />
+        <div class="card">
+            <div class="Back">Back</div>
+            <a id="prrow" href="lupasverifikasi.html">
+            <svg class="Arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none">
+                <path d="M10.6663 19L3.99963 12M3.99963 12L10.6663 5M3.99963 12L19.9996 12" stroke="#0B3617"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="ResetPassword">Reset Password</div>
+            </a> 
+            <div class="box">
+                <form action="ceklogin.php" method="post">
+                    <div class="box-input">
+                        <input type="text" name="username" required="required"
+                            oninvalid="this.setCustomValidity('Username tidak boleh kosong!')"
+                            oninput="setCustomValidity('')">
+                        <label>Masukkan password baru</label>
+                    </div>
+                    <div class="box-input">
+                        <span></span>
+                        <input type="password" name="password" required="required"
+                            oninvalid="this.setCustomValidity('password tidak boleh kosong!')"
+                            oninput="setCustomValidity('')">
+                        <label>Konfirmasi password baru</label>
+                    </div>
+                    <button type="submit" name="lanjutkan" class="btn_input">Lanjutkan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
