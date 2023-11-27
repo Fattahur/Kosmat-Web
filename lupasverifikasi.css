@@ -93,6 +93,36 @@ form {
     left: 60px;
     top: 105px;
 }
+
+.codeOTP{
+    width: 400px;
+    height: 350px;
+    background: transparent;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    left: 28px;
+    top: 80px;
+}
+
+.codeOTP1{
+    position: relative;
+    width: 310px;
+    margin: 30px;
+    left: 50px;
+    top: 65px;
+}
+
+.codeOTP1 input{
+    width: 40px; 
+    height: 40px;
+    left: 30px; 
+    top: 170px; 
+    border-radius: 12px;
+    border-color: black;
+    text-align: center;
+}
+
 .btn_input{
     border-radius: 12px;
     width: 310px; 
