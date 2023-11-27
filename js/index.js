@@ -7,8 +7,9 @@ const nik = document.getElementById('nik');
 const pass = document.getElementById('regpass');
 const valpass = document.getElementById('regvalpass');
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', e => {
     e.preventDefault();
+
     validateInputs();
 });
 
@@ -18,10 +19,10 @@ const setError = (element, message) => {
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
-    inputControl.classList.remove('success');
-};
+    inputControl.classList.remove('success')
+}
 
-const setSucces = element => {
+const setSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
@@ -53,7 +54,11 @@ const validateInputs = () => {
 
     if (telpValue === '') {
         setError(telp, 'harus di isi!');
-    } else {
+    } else if (telpValue.length < 13) {
+        setError(telp, 'nomor tiak boleh kurang dari 13');
+    }else if (telpValue.length > 13) {
+        setError(telp, 'nomor tidak boleh lebih dari 13');
+    }{
         setSucces(telp);
     }
 
@@ -65,7 +70,11 @@ const validateInputs = () => {
 
     if (nikValue === '') {
         setError(nik, 'harus di isi!');
-    } else {
+    } else if (nikValue.length < 16) {
+        setError(nik, 'nik tidak boleh kurang dari 16');
+    } else if (nikValue.length > 16) {
+        setError(nik, 'nik tidak boleh lebih dari 16');
+    } else{
         setSucces(nik);
     }
 

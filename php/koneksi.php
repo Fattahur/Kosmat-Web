@@ -1,15 +1,14 @@
 <?php
 error_reporting(0);
-session_start();
 $host = "localhost";
 $username = "root";
 $password = "";
-$databasename = "kos";
+$databasename = "kosan";
 $connection = mysqli_connect($host,$username,$password,$databasename) ;
-
-if(!$connection){
-    die("koneksi Gagal : " . mysqli_connect_error());
-}else{
+if (mysqli_connect_errno()) {
+    echo "koneksi gagal" .mysqli_connect_error();
+}
+else {
     echo "Koneksi Berhasil";
 }
 ?>

@@ -1,74 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/regist.css" media="screen" title="no title">
-    <script defer src="./js/index.js"></script>
-    <title>Halaman Form Register</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Register</title>
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 </head>
 
 <body>
     <div class="atas">
         <div class="Rectangle1"></div>
         <div class="Kosmat">KosMat</div>
-        <img src="../Project/Aset/logreg.png " class="logreg" />
-        <img src="../Project/Aset/logo6 1.png " class="icon" />
-
-        <div class="Masuk">Register</div>
-        <a id="prrow" href="awallogin.html">
-            <svg class="Arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none">
-                <path d="M10.6663 19L3.99963 12M3.99963 12L10.6663 5M3.99963 12L19.9996 12" stroke="#0B3617"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </a>
-        <div class="box">
-            <form action="./php/vregisters.php" method="post" id="form">
-                <div class="box-input">
-                    <input type="text" name="nmalngkp" id="nmalngkp" required>
-                    <label for="nmalngkp">Nama Lengkap</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <input type="text" name="alamat" id="alamat" required>
-                    <label for="alamat">Alamat</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <input type="number" name="telp" id="telp" required>
-                    <label for="telp">Nomor WA</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <input type="number" name="nik" id="nik" required>
-                    <label for="nik">NIK</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <input type="text" name="username" id="username" required>
-                    <label for="username">username</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <span></span>
-                    <input type="password" name="regpass" id="regpass" required>
-                    <label for="regpass">password</label>
-                    <div class="error"></div>
-                </div>
-                <div class="box-input">
-                    <span></span>
-                    <input type="password" name="regvalpass" id="regvalpass" required>
-                    <label for="regvalpass">Konfirmasi password</label>
-                    <div class="error"></div>
-                </div>
-                <button type="submit" name="login" class="btn_input" onclick="(e)">REGISTER</button>
-            </form>
-        </div>
+        <img src="../Project/Aset/logreg.png" class="logreg" />
+        <img src="../Project/Aset/logo6 1.png" class="icon" />
+    <div class="box">
+        <form action="./php/vregisters.php" method="post" autocomplete="off">
+            <a id="prrow" href="awallogin.html">
+                <svg class="Arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none">
+                    <path d="M10.6663 19L3.99963 12M3.99963 12L10.6663 5M3.99963 12L19.9996 12" stroke="#0B3617"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <h2>Registrasi</h2>
+            <div class="form-group NIK">
+                <label for="nik">NIK</label>
+                <input type="text" id="nik" name="nik" placeholder="Masukkan NIK Yang Telah Terdaftar">
+            </div>
+            <div class="form-group fullname">
+                <label for="fullname">Nama Lengkap</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Masukkan Nama Lengkap Anda">
+            </div>
+            <div class="form-group alamat">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" name="alamat" placeholder="Silahkan Masukkan Alamat Anda">
+            </div>
+            <div class="form-group telepon">
+                <label for="alamat">Nomor Whatsapp</label>
+                <input type="text" id="telepon" name="telepon" placeholder="Silahkan Masukkan Nomor Whatsapp Anda">
+            </div>
+            <div class="form-group teleponwali">
+                <label for="alamat">Nomor Whatsapp (Wali)</label>
+                <input type="text" id="teleponwali" name="teleponwali" placeholder="Silahkan Masukkan Nomor Whatsapp (Wali) Anda">
+            </div>
+            <div class="form-group username">
+                <label for="alamat">Username</label>
+                <input type="text" id="username" name="username" placeholder="Silahkan Masukkan Username Anda">
+            </div>
+            <div class="form-group password">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Silahkan Masukkan Password">
+                <i id="pass-toggle-btn" class="fa-solid fa-eye"></i>
+            </div>
+            <div class="form-group password">
+                <label for="password">Password</label>
+                <input type="password" id="password2" name="password" placeholder="Silahkan Konfirmasi Password">
+                <i id="pass-toggle-btn2" class="fa-solid fa-eye"></i>
+            </div>
+            <div class="form-group date">
+                <label for="date">Tanggal Lahir</label>
+                <input type="date" id="date" name="date" placeholder="Select your date">
+            </div>
+            <div class="form-group gender">
+                <label for="gender">Jenis Kelamin</label>
+                <select id="gender" name="gender">
+                    <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                    <option value="Laki Laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group submit-btn">
+                <input type="submit" value="Submit" name="simpan"></input>
+            </div>
+        </form>
     </div>
+    <script src="./js/reg.js"></script>
+</div>
 </body>
+
 </html>

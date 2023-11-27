@@ -1,27 +1,35 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['login'])) {
+        echo '<script language = "javascript">
+        alert ("Silahkan Login Terlebih Dahulu"); document.location="login.html"; </script>';
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
-<!-- Coding by CodingNepal | www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <title> Dashboard </title>
-    <link rel="stylesheet" href="./css/pays.css" media="screen" title="no title">
+    <title> Message </title>
+    <link rel="stylesheet" href="./css/mess.css" media="screen" title="no title">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <script defer src="./js/pay.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-    
+<script defer src="./js/mess.js"></script>
     <div class="sidebar">
         <div class="logo-details">
-            <i><img src="../Project/Aset/logo6 1.png " class="icon" /></i>
+            <i><img src="../Project/Aset/logo6 1.png" class="icon" /></i>
             <span class="logo_name">KosMat</span>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="dashboard.html"    >
+                <a href="dashboard.php">
                     <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 15" fill="none">
                             <path
                                 d="M8.09522 15.381V11.3334H11.3333V15.381C11.3333 15.8263 11.6976 16.1906 12.1429 16.1906H14.5714C15.0167 16.1906 15.381 15.8263 15.381 15.381V9.71434H16.7572C17.1295 9.71434 17.3076 9.25291 17.0243 9.01005L10.2567 2.91432C9.94904 2.63908 9.47952 2.63908 9.1719 2.91432L2.40425 9.01005C2.12901 9.25291 2.29901 9.71434 2.6714 9.71434H4.04759V15.381C4.04759 15.8263 4.41188 16.1906 4.85712 16.1906H7.2857C7.73094 16.1906 8.09522 15.8263 8.09522 15.381Z"
@@ -31,7 +39,7 @@
                 </a>
             </li>
             <li>
-                <a href="payment.html" class="active">
+                <a href="payment.php" >
                     <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="-2 0 20 8" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M1.00015 2.32143L1 10.6411L2.18445 11.0099C4.11001 11.6095 6.19181 11.6095 8.11737 11.0099C10.2223 10.3544 12.5077 10.4172 14.5678 11.187C14.6978 11.2356 14.8364 11.1394 14.8364 11.0006L14.8366 1.72718L14.5679 1.6268C12.5079 0.856994 10.2224 0.794251 8.11755 1.44972C6.19199 2.04935 4.11019 2.04935 2.18463 1.44972C1.5969 1.2667 1.00017 1.70586 1.00015 2.32143ZM8 9C9.65685 9 11 7.65686 11 6C11 4.34315 9.65685 3 8 3C6.34315 3 5 4.34315 5 6C5 7.65686 6.34315 9 8 9Z"
@@ -44,7 +52,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="message.php" class="active">
                     <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 18 11" fill="none">
                             <path
                                 d="M14.3602 1.85291H3.24261C2.47827 1.85291 1.85985 2.47827 1.85985 3.24261L1.85291 15.7499L4.63231 12.9705H14.3602C15.1245 12.9705 15.7499 12.3451 15.7499 11.5808V3.24261C15.7499 2.47827 15.1245 1.85291 14.3602 1.85291ZM12.2757 10.1911H5.32716C4.94499 10.1911 4.63231 9.87843 4.63231 9.49626C4.63231 9.11409 4.94499 8.80141 5.32716 8.80141H12.2757C12.6578 8.80141 12.9705 9.11409 12.9705 9.49626C12.9705 9.87843 12.6578 10.1911 12.2757 10.1911ZM12.2757 8.10656H5.32716C4.94499 8.10656 4.63231 7.79388 4.63231 7.41171C4.63231 7.02954 4.94499 6.71686 5.32716 6.71686H12.2757C12.6578 6.71686 12.9705 7.02954 12.9705 7.41171C12.9705 7.79388 12.6578 8.10656 12.2757 8.10656ZM12.2757 6.02201H5.32716C4.94499 6.02201 4.63231 5.70933 4.63231 5.32716C4.63231 4.94499 4.94499 4.63231 5.32716 4.63231H12.2757C12.6578 4.63231 12.9705 4.94499 12.9705 5.32716C12.9705 5.70933 12.6578 6.02201 12.2757 6.02201Z"
@@ -54,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="profil.php">
                     <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" viewBox="0 -2 14 14" fill="none">
                             <path
                                 d="M6.71431 6.71437C8.50337 6.71437 9.95242 5.26532 9.95242 3.47627C9.95242 1.68721 8.50337 0.238159 6.71431 0.238159C4.92526 0.238159 3.4762 1.68721 3.4762 3.47627C3.4762 5.26532 4.92526 6.71437 6.71431 6.71437ZM6.71431 8.33343C4.55288 8.33343 0.238098 9.41819 0.238098 11.5715V13.1906H13.1905V11.5715C13.1905 9.41819 8.87575 8.33343 6.71431 8.33343Z"
@@ -64,7 +72,7 @@
                 </a>
             </li>
             <li class="log_out">
-                <a href="#">
+                <a href="./php/logout.php">
                     <i class='bx bx-log-out'></i>
                     <span class="links_name">Log out</span>
                 </a>
@@ -75,27 +83,27 @@
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <span class="dashboard">KAMAR 1</span>
+                <span class="dashboard">KAMAR <?php echo $_SESSION['id_kamar'] ?></span>
             </div>
             <div class="profile-details">
-                <img src="./Aset/favicon-16x16.png" alt="">
-                <span class="admin_name">Muklishin</span>
+                <img src="./img/<?php echo $_SESSION['image'] ?>" alt="">
+                <span class="admin_name"><?php echo $_SESSION['nama'] ?></span>
             </div>
         </nav>
 
         <div class="home-content">
             <div class="sales-boxes">
                 <div class="recent-sales box">
-                    <p class="judul">Bayar Kos</p>
-                    <div class="drag-area">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 16.9639V19.0929C20 19.3449 19.9103 19.559 19.7308 19.7354C19.5513 19.9118 19.3333 20 19.0769 20H4.92308C4.66667 20 4.44872 19.9118 4.26923 19.7354C4.08974 19.559 4 19.3449 4 19.0929V16.9639C4 16.7119 4.08974 16.4978 4.26923 16.3214C4.44872 16.145 4.66667 16.0568 4.92308 16.0568H8.34205C8.75582 16.0568 9.10785 16.3348 9.38683 16.6428C9.48049 16.7462 9.58712 16.8406 9.70673 16.9261C10.024 17.1529 10.3782 17.2663 10.7692 17.2663H13.2308C13.6218 17.2663 13.976 17.1529 14.2933 16.9261C14.4129 16.8406 14.5195 16.7462 14.6132 16.6428C14.8921 16.3348 15.2442 16.0568 15.658 16.0568H19.0769C19.3333 16.0568 19.5513 16.145 19.7308 16.3214C19.9103 16.4978 20 16.7119 20 16.9639ZM16.7497 8.06472C16.6407 8.3167 16.4516 8.44269 16.1824 8.44269H13.7208V12.6759C13.7208 12.8397 13.6599 12.9814 13.5381 13.1011C13.4163 13.2208 13.2721 13.2806 13.1054 13.2806H10.6439C10.4772 13.2806 10.333 13.2208 10.2112 13.1011C10.0894 12.9814 10.0285 12.8397 10.0285 12.6759V8.44269H7.56698C7.29775 8.44269 7.10865 8.3167 6.99967 8.06472C6.8907 7.81904 6.93557 7.60172 7.13429 7.41273L11.442 3.17953C11.5574 3.05984 11.7016 3 11.8747 3C12.0478 3 12.192 3.05984 12.3074 3.17953L16.6151 7.41273C16.8138 7.60172 16.8586 7.81904 16.7497 8.06472Z" stroke="#2E2E2E" stroke-opacity="0.5" stroke-width="2" stroke-linejoin="round"/>
-                          </svg>
-                        <header>Drag & Drop to Upload File</header>
-                        <span>OR</span>
-                        <button>Browse File</button>
-                        <input type="file" hidden>
-                    </div>
+                    <p class="judul">Keluhan</p>
+                    <form class="bayar" action="./php/messege.php" method="post" autocomplete="off" enctype="multipart/form-data">
+                    <input class="pesan" type="text" name="keluhan" placeholder="Silahkan Isi Keluhan Anda"></input>
+                    <div class="select-menu">
+                    <input class="id" type="text" name="id" value="<?php echo $_SESSION['id_kepemilikan'] ?>" hidden></input>
+                    <input type="file" name="image" id="imagemsg">
+                    <a> Priview Foto Keluhan</a>
+                    <img src="./img/" alt="" id="showimgmsg">
+                    <input type="submit" name="login" class="btn_input" value="Kirim"></input>
+                    </form>
                 </div>
             </div>
         </div>

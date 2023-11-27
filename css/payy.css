@@ -227,7 +227,7 @@ nav .profile-details i {
   justify-content: center;
   flex-direction: column;
   background: #D9D9D9;
-
+  position: relative;
 }
 
 .drag-area.active {
@@ -280,6 +280,108 @@ nav .profile-details i {
   line-height: normal;
 }
 
+.harga {
+  color: #2E2E2E;
+  font-size: 20px;
+  font-family: Poppins;
+  font-weight: 600;
+  word-wrap: break-word
+}
+
+/* image priview */
+#showimgpay{
+  height: 240px;
+  width: 240px;
+  position: flex;
+}
+
+/* dropdown css*/
+.select-menu {
+  width: 200px;
+  margin: 30px 1px;
+}
+
+.select-menu .select-btn {
+  display: flex;
+  height: 40px;
+  background: #fff;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.select-btn i {
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: relative;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+
+.options .option:hover {
+  background: #F2F2F2;
+}
+
+.option i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.option .option-text {
+  font-size: 18px;
+  color: #333;
+}
+
+/* btn bawah */
+.btn_input {
+  border-radius: 12px;
+  width: 310px;
+  height: 44px;
+  color: white;
+  background-color: rgba(10.84, 54.19, 22.66, 0.70);
+  font-size: 13px;
+  font-family: Poppins;
+  font-weight: 600;
+  word-wrap: break-word;
+  cursor: pointer;
+  transition: all;
+  letter-spacing: 1px;
+  margin: 15px 0px;
+}
+
+#imagepay{
+  width: 90px;
+}
 /* Responsive Media Query */
 @media (max-width: 1240px) {
   .sidebar {
@@ -311,6 +413,7 @@ nav .profile-details i {
     left: 220px;
   }
 }
+
 
 @media (max-width: 1150px) {
   .home-content .sales-boxes {
