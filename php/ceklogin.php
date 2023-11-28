@@ -9,10 +9,7 @@ if (isset($_POST['login'])) {
     $_SESSION['login'] = $_POST['login'];
     
     $sql = "SELECT * FROM akun WHERE username = '".$username."' AND password = '".$password."' ";
-    $sql2 = "SELECT akun.*, kepemilikan.id_kamar, kepemilikan.id_kepemilikan
-    FROM akun
-    JOIN kepemilikan ON akun.nik = kepemilikan.nik
-    WHERE akun.username = '$username' AND akun.password = '$password';";
+    $sql2 = "SELECT akun.*, kepemilikan.id_kamar, kepemilikan.id_kepemilikan AS kep FROM akun JOIN kepemilikan ON akun.nik = kepemilikan.nik WHERE akun.username = '$username' AND akun.password = '$password';";
     $result = mysqli_query($connection,$sql2);
     
     if (mysqli_num_rows($result) === 1) {
@@ -32,7 +29,7 @@ if (isset($_POST['login'])) {
             $_SESSION['tgl_lahir'] = $data['tgl_lahir'];
             $_SESSION['gender'] = $data['gender'];
             $_SESSION['id_kamar'] = $data['id_kamar'];
-            $_SESSION['id_kepemilikan'] = $data['id_kepemilikan'];
+            $_SESSION['kep'] = $data['kep'];
             header("location:../dashboard.php");
             exit();
         }

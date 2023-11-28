@@ -1,10 +1,15 @@
 <?php
+include './php/koneksi.php';
     session_start();
     if (!isset($_SESSION['login'])) {
         echo '<script language = "javascript">
         alert ("Silahkan Login Terlebih Dahulu"); document.location="login.html"; </script>';
         exit;
     }
+    $nik = $_SESSION['nik'];
+    $sql2 = "SELECT * FROM tagihan LEFT JOIN validasi ON tagihan.id_tagihan = validasi.id_tagihan join log_kepemilikan on tagihan.id_kepemilikan = log_kepemilikan.id_kepemilikan join akun on log_kepemilikan.nik = akun.nik and akun.nik = '$nik';";
+    $result = mysqli_query($connection,$sql2);
+    $data = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Dashboard </title>
-    <link rel="stylesheet" href="./css/dash.css" media="screen" title="no title">
+    <link rel="stylesheet" href="./css/dashb.css" media="screen" title="no title">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.7/datatables.min.js"></script>
     <!-- Boxicons CDN Link -->
@@ -57,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a  href="message.php">
+                <a href="message.php">
                     <i><svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 18 11" fill="none">
                             <path
                                 d="M14.3602 1.85291H3.24261C2.47827 1.85291 1.85985 2.47827 1.85985 3.24261L1.85291 15.7499L4.63231 12.9705H14.3602C15.1245 12.9705 15.7499 12.3451 15.7499 11.5808V3.24261C15.7499 2.47827 15.1245 1.85291 14.3602 1.85291ZM12.2757 10.1911H5.32716C4.94499 10.1911 4.63231 9.87843 4.63231 9.49626C4.63231 9.11409 4.94499 8.80141 5.32716 8.80141H12.2757C12.6578 8.80141 12.9705 9.11409 12.9705 9.49626C12.9705 9.87843 12.6578 10.1911 12.2757 10.1911ZM12.2757 8.10656H5.32716C4.94499 8.10656 4.63231 7.79388 4.63231 7.41171C4.63231 7.02954 4.94499 6.71686 5.32716 6.71686H12.2757C12.6578 6.71686 12.9705 7.02954 12.9705 7.41171C12.9705 7.79388 12.6578 8.10656 12.2757 8.10656ZM12.2757 6.02201H5.32716C4.94499 6.02201 4.63231 5.70933 4.63231 5.32716C4.63231 4.94499 4.94499 4.63231 5.32716 4.63231H12.2757C12.6578 4.63231 12.9705 4.94499 12.9705 5.32716C12.9705 5.70933 12.6578 6.02201 12.2757 6.02201Z"
@@ -88,49 +93,54 @@
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <span class="dashboard">KAMAR <?php echo $_SESSION['id_kamar'] ?></span>
+                <span class="dashboard">KAMAR
+                    <?php echo $_SESSION['id_kamar'] ?>
+                </span>
             </div>
             <div class="profile-details">
-            <img src="./img/<?php echo $_SESSION['image'] ?>" alt="">
-                <span class="admin_name"><?php echo $_SESSION['nama'] ?></span>
+                <img src="./img/<?php echo $_SESSION['image'] ?>" alt="">
+                <span class="admin_name">
+                    <?php echo $_SESSION['nama'] ?>
+                </span>
             </div>
         </nav>
 
         <div class="home-content">
             <div class="overview-boxes">
+                <?php 
+                        $nik = $_SESSION['nik'];
+                        $sql3 = "select MONTHNAME(tagihan.tenggat) AS bulan,jumlah from tagihan join validasi on tagihan.id_tagihan = validasi.id_tagihan join log_kepemilikan on tagihan.id_kepemilikan = log_kepemilikan.id_kepemilikan and log_kepemilikan.nik = '$nik';";
+                        $result2 = mysqli_query($connection,$sql3);
+                        ?>
+                <?php
+                        while ($tagihan = mysqli_fetch_assoc($result2)) {
+                        ?>
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic">Bulan Maret</div>
+                        <div class="box-topic">Bulan
+                            <?php echo $tagihan['bulan'] ?>
+                        </div>
                         <div class="number">Rp. 400.000</div>
                         <div class="indicator">
                             <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Tagihan Kos yang belum dibayar</span>
+                            <span class="text">Tagihan Kos Sedang Diverifikasi</span>
                         </div>
                     </div>
                 </div>
+                <?php } ?>
+                <?php 
+                        $nik = $_SESSION['nik'];
+                        $sql2 = "SELECT MONTHNAME(tagihan.tenggat) AS bulan,jumlah FROM tagihan LEFT JOIN validasi ON tagihan.id_tagihan = validasi.id_tagihan join log_kepemilikan on tagihan.id_kepemilikan = log_kepemilikan.id_kepemilikan and log_kepemilikan.nik = '$nik' WHERE validasi.id_tagihan IS null;";
+                        $result3 = mysqli_query($connection,$sql2);
+                        ?>
+                <?php
+                        while ($tagihan1 = mysqli_fetch_assoc($result3)) {
+                        ?>
                 <div class="box">
                     <div class="right-side">
-                        <div class="box-topic">Bulan Mei</div>
-                        <div class="number">Rp. 400.000</div>
-                        <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Tagihan Kos yang belum dibayar</span>
+                        <div class="box-topic">Bulan
+                            <?php echo $tagihan1['bulan'] ?>
                         </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="right-side">
-                        <div class="box-topic">Bulan Juni</div>
-                        <div class="number">Rp. 400.000</div>
-                        <div class="indicator">
-                            <i class='bx bx-up-arrow-alt'></i>
-                            <span class="text">Tagihan Kos yang belum dibayar</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="right-side">
-                        <div class="box-topic">Bulan Juli</div>
                         <div class="number">Rp. 400.000</div>
                         <div class="indicator">
                             <i class='bx bx-down-arrow-alt down'></i>
@@ -138,10 +148,12 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
 
             <div class="sales-boxes">
                 <div class="recent-sales box">
+                    <h id="rwt">Riwayat Pembayaran</h>
                     <table id="dt" class="hover" style="width:100%">
                         <thead>
                             <tr>
@@ -153,85 +165,32 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php 
+                        $nik = $_SESSION['nik'];
+                        $sql = "select pemasukan.id_pemasukan, pemasukan.tanggal_bayar, log_kepemilikan.id_kamar, pemasukan.jumlah_tagihan, pemasukan.bukti_pembayaran from pemasukan join log_kepemilikan on pemasukan.id_kepemilikan = log_kepemilikan.id_kepemilikan and log_kepemilikan.nik = '$nik';";
+                        $result = mysqli_query($connection,$sql);
+                        ?>
+                            <?php
+                        while ($data = mysqli_fetch_assoc($result)) {
+                        ?>
                             <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
+                                <td>
+                                    <?php echo $data['id_pemasukan'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $data['tanggal_bayar'] ?>
+                                </td>
+                                <td>Kamar
+                                    <?php echo $data['id_kamar'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $data['jumlah_tagihan'] ?>
+                                </td>
                                 <td><a href="
-                                ./img/<?php echo $_SESSION['image'] ?>
+                                ./img/<?php echo $data['bukti_pembayaran'] ?>
                                 ">Lihat</a></td>
                             </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-04-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
-                            <tr>
-                                <td>SPX029123</td>
-                                <td>13-03-2023</td>
-                                <td>Kamar 1</td>
-                                <td>Rp. 400.000</td>
-                                <td><a href="#">Lihat</a></td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                         <tfoot>
                             <tr>
@@ -261,4 +220,5 @@
     <link rel="stylesheet" href="https://code.jquery.com/jquery-3.7.0.js" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" />
 </body>
+
 </html>

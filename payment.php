@@ -1,10 +1,17 @@
 <?php
+include './php/koneksi.php';
     session_start();
     if (!isset($_SESSION['login'])) {
         echo '<script language = "javascript">
         alert ("Silahkan Login Terlebih Dahulu"); document.location="login.html"; </script>';
         exit;
     }
+
+    $nik = $_SESSION['nik'];
+    $sql2 = "SELECT * FROM tagihan LEFT JOIN validasi ON tagihan.id_tagihan = validasi.id_tagihan join log_kepemilikan on tagihan.id_kepemilikan = log_kepemilikan.id_kepemilikan join akun on log_kepemilikan.nik = akun.nik and akun.nik = '$nik';";
+    $result = mysqli_query($connection,$sql2);
+    $data = mysqli_fetch_assoc($result);
+    
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +22,12 @@
     <title> Payment </title>
     <link rel="stylesheet" href="./css/payy.css" media="screen" title="no title">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-<script defer src="./js/pay.js"></script>
+    <script defer src="./js/pay.js"></script>
     <div class="sidebar">
         <div class="logo-details">
             <i><img src="../Project/Aset/logo6 1.png" class="icon" /></i>
@@ -83,7 +89,9 @@
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <span class="dashboard">KAMAR <?php echo $_SESSION['id_kamar'] ?></span>
+                <span class="dashboard">KAMAR
+                    <?php echo $_SESSION['id_kamar'] ?>
+                </span>
             </div>
             <div class="profile-details">
                 <img src="./img/<?php echo $_SESSION['image'] ?>" alt="">
@@ -95,62 +103,43 @@
 
         <div class="home-content">
             <div class="sales-boxes">
-                <div class="recent-sales box">
-                    <p class="judul">Bayar Kos</p>
-                    <div class="select-menu">
-                        <div class="select-btn">
-                            <span class="sBtn-text">Pilih Bulan</span>
-                            <i class="bx bx-chevron-down"></i>
+                <form class="bayar" action="./php/pay.php" method="post" autocomplete="off"
+                    enctype="multipart/form-data">
+                    <div class="recent-sales box">
+                        <p class="judul">Bayar Kos</p>
+                        <div class="select-menu">
+                            <div class="select-btn">
+                                <span class="sBtn-text">Pilih Bulan</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
+                            <?php 
+                        $nik = $_SESSION['nik'];
+                        $sql3 = "SELECT tagihan.id_tagihan, MONTHNAME(tagihan.tenggat) AS tenggat FROM tagihan join log_kepemilikan on tagihan.id_kepemilikan = log_kepemilikan.id_kepemilikan join akun on log_kepemilikan.nik = akun.nik and akun.nik = '$nik';";
+                        $result2 = mysqli_query($connection,$sql3);
+                        ?>
+                            <?php
+                        while ($tagihan = mysqli_fetch_assoc($result2)) {
+                        ?>
+                            <ul class="options">
+                                <li class="option">
+                                    <input value="<?php echo $tagihan['id_tagihan'] ?>" name="idtagihan"></input>
+                                    <span class="option-text">
+                                        <?php echo $tagihan['tenggat'] ?>
+                                    </span>
+                                </li>
+                            </ul>
+                            <?php
+                        }
+                        ?>
                         </div>
-                        <ul class="options">
-                            <li class="option">
-                                <span class="option-text">JANUARI</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">FEBRUARI</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">MARET</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">APRIL</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">MEI</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">JUNI</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">JULI</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">AGUSTUS</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">SEPTEMBER</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">OKTOBER</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">NOVEMBER</span>
-                            </li>
-                            <li class="option">
-                                <span class="option-text">DESEMBER</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="harga">RP. 400.000</p>
-                    <form class="bayar" action="./php/pay.php" method="post" autocomplete="off" enctype="multipart/form-data">
-                        <input type="text" name="ktp" value="<?php echo $_SESSION['nik'] ?>" hidden>
-                        <input type="file" name="image" id="imagepay" >
+                        <p class="harga">RP. 400.000</p>
+                        <input type="file" name="image" id="imagepay">
                         <a> Priview Bukti Pembayaran</a>
                         <img src="./img/" alt="" id="showimgpay">
                         <input type="submit" name="bayar" id="bayar" class="btn_input" value="Bayar"></input>
-                    </form>
-                </div>
+                </form>
             </div>
+        </div>
         </div>
     </section>
     <script>

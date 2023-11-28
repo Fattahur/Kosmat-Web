@@ -5,7 +5,6 @@ include 'koneksi.php';
 if (true) {
     $nik = $_POST['nik'];
     $nama = $_POST['fullname'];
-    $alamat = $_POST['alamat'];
     $telp = $_POST['telepon'];
     $telpwali = $_POST['teleponwali'];
     $username = $_POST['username'];
@@ -35,7 +34,6 @@ if (true) {
         $sqlupdate = "UPDATE akun SET 
             nik = '$nik',
             nama = '$nama',
-            alamat = '$alamat',
             no_whatsapp = '$telp',
             no_whatsapp_wali = '$telpwali',
             tgl_lahir = '$tgllahir',
