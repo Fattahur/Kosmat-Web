@@ -44,7 +44,7 @@ form{
     width: 310px; 
     height: 44px;
     left: 30px; 
-    top: 230px; 
+    top: 260px; 
     position: absolute; 
     color: white;
     background-color: rgba(10.84, 54.19, 22.66, 0.70); 
@@ -155,9 +155,15 @@ form{
     cursor: pointer;
 }
 
+#lps{
+    position: relative;
+    left: 35px;
+    top: 30px;
+}
 
 .container1{
     width: 300px;
+    height: auto;
     margin: auto;
     display: flex;
     align-items: center;

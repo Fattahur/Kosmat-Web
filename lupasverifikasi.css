@@ -94,6 +94,15 @@ form {
     top: 105px;
 }
 
+.timer {
+    position: absolute;
+    left: 60px;
+    font-family: Poppins;
+    width: 400px;
+    font-size: 14px;
+    top: 145px;
+}
+
 .codeOTP{
     width: 400px;
     height: 350px;
@@ -102,15 +111,13 @@ form {
     display: flex;
     position: relative;
     left: 28px;
-    top: 80px;
+    top: 175px;
 }
 
 .codeOTP1{
     position: relative;
     width: 310px;
-    margin: 30px;
-    left: 50px;
-    top: 65px;
+    left: 80px;
 }
 
 .codeOTP1 input{
@@ -128,7 +135,7 @@ form {
     width: 310px; 
     height: 44px;
     left: 30px; 
-    top: 170px; 
+    top: 80px; 
     position: absolute; 
     color: white;
     background-color: rgba(10.84, 54.19, 22.66, 0.70); 

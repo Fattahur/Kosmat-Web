@@ -9,9 +9,10 @@ $result = mysqli_query($connection,$sql);
 
 if(mysqli_num_rows($result)== 0){   
     echo '<script language = "javascript">
-    alert ("Username yang dimasukkan salah"); document.location="../lupasemail.html"; </script>';
+    alert ("Username tidak terdaftar"); document.location="../lupasemail.html"; </script>';
 }else{
-    echo '<script language = "javascript">
-    alert ("Username anda benar"); document.location="../lupasverifikasi.html"; </script>';
+    include "../whatsapp.php";
+    header('Location: ../lupasverifikasi.html');
+    
 }
 ?>
