@@ -98,7 +98,7 @@
                     <form class="bayar" action="./php/messege.php" method="post" autocomplete="off" enctype="multipart/form-data">
                     <input class="pesan" type="text" name="keluhan" placeholder="Silahkan Isi Keluhan Anda"></input>
                     <div class="select-menu">
-                    <input class="id" type="text" name="id" value="<?php echo $_SESSION['id_kepemilikan'] ?>" hidden></input>
+                    <input class="id" type="text" name="id" value="<?php echo $_SESSION['id_kepemilikan'] ?>"></input>
                     <input type="file" name="image" id="imagemsg">
                     <a> Priview Foto Keluhan</a>
                     <img src="./img/" alt="" id="showimgmsg">

@@ -5,7 +5,6 @@ require "koneksi.php";
     if(true){
     $nikreg = $_POST['nik'];
     $namareg = $_POST['fullname'];
-    $alamatreg = $_POST['alamat'];
     $telpreg = $_POST['telepon'];
     $telpwalireg = $_POST['teleponwali'];
     $usernamereg = $_POST['username'];
@@ -19,7 +18,6 @@ require "koneksi.php";
         $sqlupdate = mysqli_query($connection, "UPDATE akun
                          SET nik = '$nikreg',
                              nama = '$namareg',
-                             alamat = '$alamatreg',
                              no_whatsapp = '$telpreg',
                              no_whatsapp_wali = '$telpwalireg',
                              tgl_lahir = '$tgllahir',
@@ -31,10 +29,10 @@ require "koneksi.php";
                          WHERE nik = '$nikreg'");
 
                          if (mysqli_affected_rows($connection) > 0) {
-                            echo '<script>alert("User Berhasil Di Edit");</script>';
+                            echo '<script>alert("User Berhasil Ditambahkan");</script>';
                             echo '<script>window.location = "../login.html";</script>';
                          }else{
-                            echo '<script>alert("User Gagal Di Edit");</script>';
+                            echo '<script>alert("User Gagal Di tambahkan");</script>';
                             echo '<script>window.location = "cba.php";</script>';
                          }
 

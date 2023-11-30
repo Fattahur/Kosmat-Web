@@ -211,9 +211,9 @@ form{
 
 form .box-input i {
     position: absolute;
-    right: 0px;
+    left: 267px;
     height: 50px;
-    top: 10px;
+    top: 4px;
     font-size: 15px;
     line-height: 45px;
     width: 45px;

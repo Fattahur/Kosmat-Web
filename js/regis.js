@@ -20,7 +20,6 @@ const handleFormData = (e) => {
 
     // Retrieving input elements
     const fullnameInput = document.getElementById("fullname");
-    const alamatInput = document.getElementById("alamat");
     const teleponInput = document.getElementById("telepon");
     const teleponwaliInput = document.getElementById("teleponwali");
     const usernameInput = document.getElementById("username");
@@ -31,7 +30,6 @@ const handleFormData = (e) => {
     // Getting trimmed values from input fields
     const fullname = fullnameInput.value.trim();
     const nik = nikInput.value.trim();
-    const alamat= alamatInput.value.trim();
     const telepon= teleponInput.value.trim();
     const teleponwali= teleponwaliInput.value.trim();
     const username= usernameInput.value.trim();
@@ -63,10 +61,6 @@ const handleFormData = (e) => {
         showError(fullnameInput, "Silahkan Masukkan Nama Lengkap Anda!");
     }else if (!validnama.test(fullname)) {
         showError(fullnameInput, "Nama Tidak Boleh Berupa/ Angka!");
-    }
-
-    if (alamat === "") {
-        showError(alamatInput, "Silahkan Masukkan Alamat");
     }
 
     if (telepon === "") {

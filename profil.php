@@ -112,11 +112,6 @@
                             <input type="text" id="fullname" name="fullname" placeholder="Masukkan Nama Lengkap Anda"
                             value="<?php echo $_SESSION['nama'] ?>">
                         </div>
-                        <div class="form-group alamat">
-                            <label for="alamat">Alamat</label>
-                            <input type="text" id="alamat" name="alamat" placeholder="Silahkan Masukkan Alamat Anda"
-                            value="<?php echo $_SESSION['alamat'] ?>">
-                        </div>
                         <div class="form-group telepon">
                             <label for="alamat">Nomor Whatsapp</label>
                             <input type="text" id="telepon" name="telepon" placeholder="Silahkan Masukkan Nomor Whatsapp Anda"
