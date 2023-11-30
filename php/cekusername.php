@@ -12,7 +12,6 @@ if(mysqli_num_rows($result)== 0){
     alert ("Username tidak terdaftar"); document.location="../lupasemail.html"; </script>';
 }else{
     include "../whatsapp.php";
-    header('Location: ../lupasverifikasi.html');
-    
+    header('Location: ../Project/lupasverifikasi.html');
 }
 ?>
